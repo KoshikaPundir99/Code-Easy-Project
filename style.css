@@ -1,0 +1,1986 @@
+
+/* =====================================================
+   CODEEASY AI — COMPLETE WEBSITE STYLESHEET
+   File: style.css
+   ===================================================== */
+
+/* ================= 1. RESET & VARIABLES ================= */
+
+:root {
+    --navy: #182832;
+    --navy-light: #203540;
+    --navy-soft: #29414b;
+
+    --cream: #f8f5eb;
+    --cream-light: #fffdf7;
+
+    --lime: #d8ff62;
+    --lime-dark: #c8f34b;
+
+    --text: #1b2933;
+    --muted: #78837d;
+    --muted-light: #a3aaa1;
+
+    --coral: #ff735f;
+    --border: #e2d9c7;
+
+    --blue-card: #dcebec;
+    --pink-card: #ffe0d8;
+    --yellow-card: #fff0b8;
+    --green-card: #e7e9d5;
+    --purple-card: #e9def0;
+    --peach-card: #f4dfcf;
+
+    --sidebar-width: 273px;
+
+    --radius-small: 12px;
+    --radius-medium: 22px;
+    --radius-large: 30px;
+
+    --transition: 0.25s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--lime-dark);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* ================= 2. MAIN LAYOUT ================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: var(--sidebar-width);
+    padding: 28px 21px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(
+        180deg,
+        var(--navy) 0%,
+        #152630 100%
+    );
+
+    color: #f6f8ef;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+.main-content {
+    width: calc(100% - var(--sidebar-width));
+    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+
+    padding: 35px 60px 25px;
+
+    background:
+        radial-gradient(
+            ellipse at 65% 0%,
+            rgba(255, 255, 225, 0.65),
+            transparent 60%
+        ),
+        var(--cream);
+}
+
+
+/* ================= 3. BRAND / LOGO ================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 46px;
+}
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--lime);
+    color: var(--navy);
+
+    border-radius: 13px;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.brand-text h2 {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.brand-text span {
+    display: block;
+    margin-top: 3px;
+
+    color: #b8c5c4;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+
+/* ================= 4. SIDEBAR NAVIGATION ================= */
+
+.sidebar-label {
+    margin: 0 0 14px 13px;
+
+    color: #82949a;
+
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link {
+    width: 100%;
+    min-height: 47px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: transparent;
+    color: #d8e1df;
+
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+.nav-link.active {
+    background: var(--lime);
+    color: var(--navy);
+}
+
+.nav-link.active:hover {
+    background: #e3ff8a;
+}
+
+.nav-icon {
+    width: 20px;
+    flex-shrink: 0;
+
+    text-align: center;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.nav-dot {
+    width: 7px;
+    height: 7px;
+    margin-left: auto;
+
+    border-radius: 50%;
+    background: transparent;
+}
+
+.nav-link.active .nav-dot {
+    background: var(--navy);
+}
+
+
+/* ================= 5. TINY WIN CARD ================= */
+
+.tiny-win-card {
+    margin-top: 39px;
+    padding: 19px 18px;
+
+    border: 1px solid rgba(218, 235, 230, 0.09);
+    border-radius: 20px;
+
+    background: linear-gradient(
+        145deg,
+        #223a45,
+        #203540
+    );
+}
+
+.tiny-win-label {
+    margin-bottom: 13px;
+
+    color: var(--lime);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.tiny-win-card h3 {
+    max-width: 190px;
+
+    color: #f4f5ec;
+
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 600;
+}
+
+.tiny-win-card > p:last-child {
+    margin-top: 9px;
+
+    color: #a7b9bc;
+    font-size: 12px;
+}
+
+
+/* ================= 6. SIDEBAR FOOTER ================= */
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 19px;
+
+    border-top: 1px solid rgba(220, 230, 220, 0.16);
+}
+
+.teacher-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #a8c1c0;
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+
+    display: inline-block;
+
+    background: var(--lime);
+    border-radius: 50%;
+}
+
+.sidebar-footer > p {
+    margin-top: 15px;
+
+    color: #758a92;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+/* ================= 7. PAGE NAVIGATION ================= */
+
+.page-section {
+    display: none;
+    animation: pageEnter 0.35s ease both;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================= 8. HERO SECTION ================= */
+
+.hero-section {
+    padding: 0 0 35px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 38px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+    color: #798680;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.coral-dot {
+    width: 6px;
+    height: 6px;
+
+    display: inline-block;
+
+    background: var(--coral);
+    border-radius: 50%;
+}
+
+.hero-section h1 {
+    max-width: 900px;
+
+    color: #17232e;
+
+    font-size: clamp(48px, 6.1vw, 98px);
+    line-height: 0.98;
+    letter-spacing: -6px;
+    font-weight: 850;
+}
+
+.highlight {
+    position: relative;
+    z-index: 0;
+    white-space: nowrap;
+}
+
+.highlight::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+
+    height: 0.24em;
+
+    background: var(--lime);
+    z-index: -1;
+}
+
+.hero-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+
+    margin-top: 23px;
+}
+
+.hero-description {
+    max-width: 590px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.hero-badges {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    color: #87918a;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1.7px;
+    white-space: nowrap;
+}
+
+.gentle-badge {
+    padding: 6px 12px;
+
+    background: #e6edce;
+    color: #647e49;
+
+    border-radius: 30px;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+
+/* ================= 9. WORKSPACE GRID ================= */
+
+.workspace-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+    gap: 30px;
+
+    align-items: start;
+}
+
+.editor-column,
+.info-column {
+    min-width: 0;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 13px;
+}
+
+.section-heading h2 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 16px;
+    font-weight: 750;
+    letter-spacing: -0.3px;
+}
+
+.heading-icon {
+    color: var(--coral);
+    font-size: 22px;
+}
+
+.text-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 5px 0;
+
+    border: none;
+    background: transparent;
+
+    color: #738078;
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: color var(--transition);
+}
+
+.text-button:hover {
+    color: #243640;
+}
+
+
+/* ================= 10. CODE EDITOR ================= */
+
+.code-editor {
+    overflow: hidden;
+
+    background: linear-gradient(
+        140deg,
+        #203541,
+        #192b36
+    );
+
+    border-radius: 25px;
+
+    box-shadow: 10px 10px 0 rgba(36, 43, 43, 0.10);
+    color: #e7eeeb;
+}
+
+.editor-topbar {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 10px 22px;
+
+    border-bottom: 1px solid rgba(230, 242, 237, 0.13);
+}
+
+.window-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.window-dots span {
+    width: 10px;
+    height: 10px;
+    display: block;
+
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #ff755f;
+}
+
+.dot.yellow {
+    background: #f2bf4f;
+}
+
+.dot.green {
+    background: #a8cf77;
+}
+
+.language-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.language-control label {
+    color: #93a7aa;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.language-control select {
+    max-width: 145px;
+
+    padding: 5px 3px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: #f0f5ee;
+
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.language-control select option {
+    background: var(--navy);
+    color: white;
+}
+
+.editor-body {
+    padding: 18px 20px 10px;
+}
+
+.editor-body textarea {
+    width: 100%;
+    min-height: 365px;
+    display: block;
+
+    resize: vertical;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: #e2ebe5;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 2;
+
+    tab-size: 4;
+    white-space: pre;
+    overflow: auto;
+}
+
+.editor-body textarea::placeholder {
+    color: #7f949a;
+}
+
+.editor-body textarea:focus-visible {
+    outline: 1px solid rgba(216, 255, 98, 0.35);
+    outline-offset: 2px;
+}
+
+.editor-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 16px 21px;
+
+    border-top: 1px solid rgba(230, 242, 237, 0.13);
+}
+
+.mode-switch {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    padding: 4px;
+
+    background: #152832;
+    border-radius: 30px;
+}
+
+.mode-btn {
+    padding: 9px 12px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: transparent;
+    color: #9aaba9;
+
+    font-size: 10px;
+    font-weight: 650;
+
+    transition: var(--transition);
+}
+
+.mode-btn:hover {
+    color: white;
+}
+
+.mode-btn.active {
+    background: #415962;
+    color: white;
+}
+
+
+/* ================= 11. PRIMARY & SECONDARY BUTTONS ================= */
+
+.primary-button {
+    min-height: 43px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: var(--lime);
+    color: #1b2b30;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.primary-button:hover:not(:disabled) {
+    background: #e7ff8c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(145, 174, 65, 0.16);
+}
+
+.primary-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.secondary-button {
+    min-height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 9px 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    background: var(--cream-light);
+    color: var(--text);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.secondary-button:hover:not(:disabled) {
+    border-color: #aab69c;
+    background: #f0f2df;
+}
+
+.editor-tip,
+.learning-tip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-top: 22px;
+
+    color: #78847d;
+    font-size: 12px;
+}
+
+.editor-tip > span,
+.learning-tip > span {
+    color: var(--coral);
+    font-size: 17px;
+}
+
+
+/* ================= 12. HOW IT WORKS CARD ================= */
+
+.how-card {
+    padding: 30px;
+
+    border: 1px solid #e2d8c6;
+    border-radius: 25px;
+
+    background: rgba(255, 254, 249, 0.88);
+}
+
+.how-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 29px;
+}
+
+.how-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 17px;
+
+    background: #ffe0d7;
+    color: var(--coral);
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.how-card-header > span {
+    color: #939c91;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+}
+
+.how-step {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.step-number {
+    padding-top: 1px;
+
+    color: var(--coral);
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+}
+
+.how-step h3 {
+    margin-bottom: 5px;
+
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.how-step p {
+    color: #7c867e;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.first-snippet {
+    padding-top: 20px;
+    margin-top: 7px;
+
+    border-top: 1px solid #e9e1d4;
+}
+
+.first-snippet > span {
+    color: #929c91;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.first-snippet p {
+    margin-top: 8px;
+
+    color: #59675f;
+
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.7;
+}
+
+
+/* ================= 13. REASSURANCE CARD ================= */
+
+.reassurance-card {
+    margin-top: 21px;
+    padding: 24px 27px;
+
+    border-radius: 23px;
+
+    background: #dfeded;
+    color: #496966;
+}
+
+.reassurance-label {
+    margin-bottom: 12px;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.reassurance-card > p:last-child {
+    font-size: 13px;
+    line-height: 1.75;
+    font-weight: 600;
+}
+
+
+/* ================= 14. RESULT PANEL ================= */
+
+.result-panel {
+    margin-top: 25px;
+    padding: 24px;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    background: var(--cream-light);
+    box-shadow: 0 6px 18px rgba(33, 43, 36, 0.04);
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding-bottom: 15px;
+    margin-bottom: 16px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.result-header h2 {
+    font-size: 19px;
+    letter-spacing: -0.5px;
+}
+
+.explanation-content {
+    color: #52635d;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.explanation-content h2,
+.explanation-content h3 {
+    margin: 16px 0 8px;
+    color: var(--text);
+}
+
+.explanation-content p {
+    margin: 8px 0;
+}
+
+.explanation-content pre,
+.explanation-content code,
+.lesson-example pre {
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.explanation-content pre,
+.lesson-example pre {
+    max-width: 100%;
+    overflow-x: auto;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: var(--navy);
+    color: #e5eee5;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.loading-message {
+    padding: 15px 0;
+    color: #78847d;
+    font-size: 13px;
+}
+
+
+/* ================= 15. LEARN CONCEPTS PAGE ================= */
+
+#learn-page .hero-section {
+    margin-bottom: 36px;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.concept-card {
+    min-width: 0;
+    min-height: 238px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 25px 25px 22px;
+
+    border: 1px solid rgba(93, 104, 91, 0.12);
+    border-radius: 24px;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.concept-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 5px 8px 0 rgba(41, 49, 42, 0.07);
+}
+
+.variables-card {
+    background: var(--blue-card);
+}
+
+.functions-card {
+    background: var(--pink-card);
+}
+
+.conditionals-card {
+    background: var(--yellow-card);
+}
+
+.loops-card {
+    background: var(--green-card);
+}
+
+.lists-card {
+    background: var(--purple-card);
+}
+
+.errors-card {
+    background: var(--peach-card);
+}
+
+.concept-card-top {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+.concept-icon {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--navy);
+
+    font-size: 19px;
+    line-height: 1.05;
+    font-weight: 800;
+    text-align: center;
+}
+
+.concept-number {
+    color: #7d8b84;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+}
+
+.concept-label {
+    margin-bottom: 9px;
+
+    color: #718079;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 1.7px;
+}
+
+.concept-card h2 {
+    margin-bottom: 8px;
+
+    color: #1b2b36;
+
+    font-size: 23px;
+    line-height: 1.3;
+    letter-spacing: -1px;
+}
+
+.concept-card > p:not(.concept-label) {
+    margin-bottom: 17px;
+
+    color: #6e7b74;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.lesson-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: auto;
+    padding: 3px 0;
+
+    border: none;
+    background: transparent;
+
+    color: #20323a;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: gap var(--transition);
+}
+
+.lesson-button:hover {
+    gap: 12px;
+}
+
+
+/* ================= 16. LESSON DETAILS ================= */
+
+.lesson-detail {
+    margin-top: 30px;
+    padding: 30px;
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    background: var(--cream-light);
+}
+
+.lesson-detail > .eyebrow {
+    margin-top: 25px;
+}
+
+.lesson-detail > h2 {
+    margin-bottom: 12px;
+
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+.lesson-detail > p:not(.eyebrow) {
+    margin-bottom: 18px;
+
+    color: #69786f;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.lesson-example {
+    margin: 20px 0;
+}
+
+.lesson-example h3,
+.lesson-detail > h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.lesson-example pre {
+    margin-top: 10px;
+    line-height: 1.8;
+}
+
+.lesson-detail .primary-button {
+    margin-top: 12px;
+}
+
+.learning-tip {
+    margin-top: 28px;
+}
+
+
+/* ================= 17. PRACTICE PAGE ================= */
+
+#practice-page .hero-section {
+    margin-bottom: 39px;
+}
+
+.progress-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    flex-shrink: 0;
+
+    padding: 10px 15px;
+
+    border: 1px solid #d5dfbc;
+    border-radius: 30px;
+
+    background: #eff4df;
+    color: #6e8054;
+
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.practice-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1.8fr);
+    gap: 28px;
+
+    align-items: start;
+}
+
+.practice-list-column {
+    min-width: 0;
+}
+
+.section-label {
+    margin: 0 0 14px;
+
+    color: #89938a;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.practice-option {
+    width: 100%;
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px;
+
+    margin-bottom: 9px;
+
+    border: 1px solid #e1d7c6;
+    border-radius: 21px;
+
+    background: rgba(255, 254, 249, 0.9);
+    color: var(--text);
+
+    text-align: left;
+
+    transition: var(--transition);
+}
+
+.practice-option:hover {
+    border-color: #bdc99f;
+    transform: translateY(-2px);
+}
+
+.practice-option.active {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: white;
+}
+
+.practice-number {
+    width: 31px;
+    height: 31px;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #eee7d9;
+    color: #7c8b85;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+}
+
+.practice-option.active .practice-number {
+    background: var(--lime);
+    color: var(--navy);
+}
+
+.practice-option-text {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.practice-option-text strong {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.practice-option-text small {
+    color: #84928c;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.practice-option.active .practice-option-text small {
+    color: #b6d6ce;
+}
+
+.practice-encouragement {
+    margin-top: 24px;
+
+    color: #78847d;
+    font-size: 12px;
+}
+
+
+/* ================= 18. PRACTICE DETAIL CARD ================= */
+
+.practice-card {
+    min-width: 0;
+
+    padding: 35px 38px;
+
+    border: 1px solid #e1d6c4;
+    border-top: 7px solid #ffe0d7;
+    border-radius: 28px;
+
+    background: rgba(255, 254, 249, 0.95);
+
+    box-shadow: 8px 9px 0 rgba(42, 45, 39, 0.09);
+}
+
+.practice-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+.difficulty-badge {
+    padding: 7px 13px;
+
+    border-radius: 30px;
+
+    background: #edf2df;
+    color: #8b9a70;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.practice-category {
+    color: #9a9d91;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+}
+
+.practice-card > h2 {
+    margin-bottom: 12px;
+
+    font-size: clamp(27px, 3.1vw, 43px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+}
+
+.practice-description {
+    color: #78847c;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.hint-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    margin: 30px 0;
+    padding: 20px;
+
+    border-radius: 19px;
+
+    background: #f3eee1;
+}
+
+.hint-icon {
+    color: var(--coral);
+    font-size: 21px;
+}
+
+.hint-heading {
+    margin-bottom: 8px;
+
+    color: #9b9786;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+}
+
+.hint-box > div:last-child > p:last-child {
+    color: #7b8075;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.practice-answer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.practice-answer > label {
+    color: #8b968d;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.practice-answer textarea {
+    width: 100%;
+    min-height: 125px;
+
+    padding: 15px;
+
+    resize: vertical;
+
+    border: 1px solid #ddd7c8;
+    border-radius: 15px;
+
+    background: #fffdf7;
+    color: var(--text);
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.practice-answer textarea::placeholder {
+    color: #a4aaa0;
+}
+
+.practice-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 5px;
+}
+
+.practice-actions .primary-button {
+    background: var(--navy);
+    color: var(--lime);
+}
+
+.practice-actions .primary-button:hover:not(:disabled) {
+    background: #2b414b;
+}
+
+.practice-feedback {
+    margin-top: 20px;
+    padding: 17px;
+
+    border: 1px solid #d4e3bd;
+    border-radius: 15px;
+
+    background: #eff5e5;
+    color: #526b48;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.practice-feedback.error {
+    border-color: #f0c8bc;
+    background: #fff0eb;
+    color: #985747;
+}
+
+.done-button {
+    margin-top: 20px;
+}
+
+
+/* ================= 19. FOOTER ================= */
+
+.main-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding-top: 25px;
+    margin-top: 45px;
+
+    border-top: 1px solid var(--border);
+
+    color: #889187;
+    font-size: 11px;
+}
+
+.main-footer > p:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-footer .status-dot {
+    width: 7px;
+    height: 7px;
+}
+
+
+/* ================= 20. RESPONSIVE: SMALL DESKTOP ================= */
+
+@media (max-width: 1350px) {
+
+    :root {
+        --sidebar-width: 245px;
+    }
+
+    .main-content {
+        padding: 32px 35px 25px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(48px, 6vw, 78px);
+        letter-spacing: -4px;
+    }
+
+    .workspace-grid {
+        grid-template-columns: minmax(0, 1.05fr) minmax(250px, 0.95fr);
+        gap: 22px;
+    }
+
+    .how-card {
+        padding: 25px;
+    }
+
+    .concept-card {
+        padding: 21px;
+    }
+
+    .practice-card {
+        padding: 29px;
+    }
+}
+
+
+/* ================= 21. RESPONSIVE: TABLETS ================= */
+
+@media (max-width: 1050px) {
+
+    :root {
+        --sidebar-width: 220px;
+    }
+
+    .sidebar {
+        padding: 25px 16px 18px;
+    }
+
+    .main-content {
+        padding: 30px 25px 25px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(45px, 6vw, 65px);
+        letter-spacing: -3px;
+    }
+
+    .hero-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-badges {
+        justify-content: flex-start;
+    }
+
+    .workspace-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-body textarea {
+        min-height: 300px;
+    }
+
+    .info-column {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+        gap: 18px;
+        align-items: start;
+    }
+
+    .reassurance-card {
+        margin-top: 0;
+    }
+
+    .concept-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .practice-layout {
+        grid-template-columns: minmax(190px, 0.75fr) minmax(0, 1.6fr);
+        gap: 18px;
+    }
+
+    .practice-card {
+        padding: 24px;
+    }
+}
+
+
+/* ================= 22. RESPONSIVE: MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    :root {
+        --sidebar-width: 0px;
+    }
+
+    body {
+        padding-bottom: 76px;
+    }
+
+    .sidebar {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 72px;
+
+        padding: 7px 10px;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        overflow: visible;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 -5px 20px rgba(19, 37, 44, 0.12);
+    }
+
+    .brand,
+    .sidebar-label,
+    .tiny-win-card,
+    .sidebar-footer {
+        display: none;
+    }
+
+    .sidebar-nav {
+        width: 100%;
+        max-width: 480px;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 5px;
+    }
+
+    .nav-link {
+        min-height: 53px;
+        flex: 1;
+
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+
+        padding: 5px 3px;
+
+        border-radius: 13px;
+
+        font-size: 10px;
+    }
+
+    .nav-icon {
+        width: auto;
+        font-size: 20px;
+    }
+
+    .nav-dot {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 28px 18px 22px;
+    }
+
+    .hero-section {
+        padding-bottom: 25px;
+        margin-bottom: 28px;
+    }
+
+    .eyebrow {
+        margin-bottom: 17px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(43px, 10vw, 66px);
+        line-height: 1.02;
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .hero-bottom {
+        margin-top: 18px;
+    }
+
+    .hero-badges {
+        font-size: 9px;
+    }
+
+    .workspace-grid {
+        gap: 25px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+    }
+
+    .section-heading h2 {
+        font-size: 15px;
+    }
+
+    .text-button {
+        font-size: 11px;
+    }
+
+    .code-editor {
+        border-radius: 19px;
+    }
+
+    .editor-topbar {
+        padding: 10px 13px;
+    }
+
+    .language-control {
+        gap: 5px;
+    }
+
+    .language-control label {
+        font-size: 8px;
+    }
+
+    .language-control select {
+        max-width: 105px;
+        font-size: 11px;
+    }
+
+    .editor-body {
+        padding: 15px 13px 8px;
+    }
+
+    .editor-body textarea {
+        min-height: 265px;
+        font-size: 12px;
+        line-height: 1.9;
+    }
+
+    .editor-bottom {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 14px;
+    }
+
+    .mode-switch {
+        align-self: flex-start;
+    }
+
+    .primary-button {
+        min-height: 43px;
+    }
+
+    .editor-bottom > .primary-button {
+        width: 100%;
+    }
+
+    .info-column {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .how-card {
+        padding: 23px;
+        border-radius: 21px;
+    }
+
+    .how-card-header {
+        margin-bottom: 23px;
+    }
+
+    .reassurance-card {
+        padding: 21px;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .concept-card {
+        min-height: 215px;
+        padding: 23px;
+    }
+
+    .concept-card h2 {
+        font-size: 22px;
+    }
+
+    .lesson-detail {
+        padding: 22px;
+    }
+
+    .lesson-detail > h2 {
+        font-size: 26px;
+    }
+
+    .practice-layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .practice-list-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .practice-option {
+        min-height: 65px;
+    }
+
+    .practice-card {
+        padding: 22px 18px;
+        border-radius: 22px;
+    }
+
+    .practice-card-top {
+        margin-bottom: 22px;
+    }
+
+    .practice-card > h2 {
+        font-size: 32px;
+        letter-spacing: -1.5px;
+    }
+
+    .practice-description {
+        font-size: 14px;
+    }
+
+    .hint-box {
+        padding: 16px;
+        margin: 23px 0;
+    }
+
+    .practice-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .practice-actions button {
+        width: 100%;
+    }
+
+    .main-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+}
+
+
+/* ================= 23. RESPONSIVE: VERY SMALL PHONES ================= */
+
+@media (max-width: 380px) {
+
+    .main-content {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    .hero-section h1 {
+        font-size: 40px;
+        letter-spacing: -2.5px;
+    }
+
+    .brand-text h2 {
+        font-size: 18px;
+    }
+
+    .mode-btn {
+        padding: 8px 9px;
+        font-size: 9px;
+    }
+
+    .practice-card {
+        padding: 18px 14px;
+    }
+
+    .how-card {
+        padding: 19px;
+    }
+
+    .nav-link {
+        font-size: 9px;
+    }
+}
+
+
+/* ================= 24. REDUCED MOTION ACCESSIBILITY ================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
